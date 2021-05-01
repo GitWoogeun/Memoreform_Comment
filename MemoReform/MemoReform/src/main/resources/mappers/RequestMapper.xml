@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="request">
+
+  <select id="getRequestList" resultType="request">
+    SELECT * FROM rqstdoc WHERE mber_no = #{mberNo}
+  </select>
+
+  <select id="getRequest" resultType="request">
+    SELECT * FROM rqstdoc WHERE no = #{no}
+  </select>
+
+  <insert id="insertRequest">
+    INSERT INTO rqstdoc (no, mber_no, ctgry, sj, cn, photo)
+    VALUES (seq_rqstdoc_no.nextval, #{mberNo}, #{ctgry}, #{sj}, #{cn}, #{photoNm})
+  </insert>
+</mapper>
